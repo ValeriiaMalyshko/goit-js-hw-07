@@ -13,11 +13,15 @@ function createImgCard(galleryItems) {
   return galleryItems
     .map(({ preview, original, description }) => {
       return `
-    <a class="gallery__item" href="${original}" onclick="event.preventDefault()">
-  <img class="gallery__image" src="${preview}" alt= "Image description" title = "${description}" />
+    <a class="gallery__item" href="${original}">
+  <img class="gallery__image" src="${preview}" alt= "${description}" />
 </a>`;
     })
     .join("");
 }
 
-var lightbox = new SimpleLightbox('.gallery a', { /* options */ });
+let lightbox = new SimpleLightbox('.gallery a', { 
+  captions : true,
+  captionsData : 'alt',
+  captionDelay : 250,
+ });

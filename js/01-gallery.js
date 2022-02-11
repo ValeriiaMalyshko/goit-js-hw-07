@@ -28,7 +28,7 @@ function createImgCard(galleryItems) {
 }
 
 function onImgElClick(event) {
-  if (!event.target.classList.contains("gallery__image")) {
+  if (event.target.nodeName !=="IMG") {
     return;
   }
   const instance = basicLightbox.create(
